@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Bookmark to Notion",
+  "version": "1.0.0",
+  "description": "自动将Twitter书签同步到Notion,并使用AI智能分类",
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://twitter.com/*",
+    "*://x.com/*",
+    "https://api.notion.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://twitter.com/*", "*://x.com/*"],
+      "js": [
+        "content-scripts/tweet-extractor.js",
+        "content-scripts/twitter-monitor.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

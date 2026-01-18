@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter Bookmark to Notion</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header>
+      <h1>📚 Twitter Bookmark</h1>
+      <p>自动同步到Notion</p>
+    </header>
+
+    <main>
+      <div class="status-card">
+        <div class="status-item">
+          <span class="label">状态:</span>
+          <span id="syncStatus" class="value">检查中...</span>
+        </div>
+        <div class="status-item">
+          <span class="label">今日同步:</span>
+          <span id="todayCount" class="value">0</span>
+        </div>
+        <div class="status-item">
+          <span class="label">失败队列:</span>
+          <span id="failedCount" class="value">0</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="openOptionsBtn" class="btn btn-primary">⚙️ 设置</button>
+        <button id="retryBtn" class="btn btn-secondary">🔄 重试失败</button>
+      </div>
+
+      <div class="recent-sync">
+        <h3>最近同步</h3>
+        <ul id="recentList">
+          <li class="empty">暂无记录</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <small>v1.0.0</small>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
